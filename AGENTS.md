@@ -40,7 +40,7 @@ A paleta do projeto é fixa e deve ser aplicada de modo coerente:
 | Cinza quente | `#77716A` |
 | Bordas | `#E4DED4` |
 
-- Não use vinho, bordô ou rosa, inclusive em variações de tom, estados, gradientes ou decoração.
+- Vinho e bordô podem ser usados como acento profissional e comedido — por exemplo em destaques tipográficos, separadores ou elementos decorativos pontuais. Evite usar como cor de fundo dominante ou de forma saturada. Rosa não é adequado para o tom do projeto.
 - Priorize fundos marfim e branco, texto grafite, texto secundário em cinza quente, bordas discretas e dourado champagne como acento comedido. Verifique contraste legível em texto e controles.
 - Prefira uma composição editorial personalizada, tipografia elegante e espaços bem ritmados. Evite aparência genérica de template, excesso de cartões, ornamentos sem função ou clichês visuais jurídicos.
 - Centralize cores em tokens CSS ou no tema Tailwind existente quando aplicável; evite valores duplicados e avulsos.

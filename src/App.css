@@ -762,14 +762,30 @@ main {
   font-size: 15px;
 }
 
+.modal-gallery {
+  margin-bottom: 28px;
+}
+
+/* altura fixa para a troca de fotos não encolher o modal entre o fade de saída e o de entrada */
+.modal-gallery-frame {
+  height: 280px;
+  background: var(--color-sand);
+}
+
 .modal-image {
   display: block;
   width: 100%;
-  height: 280px;
-  margin-bottom: 28px;
-  background: var(--color-sand);
+  height: 100%;
   object-fit: cover;
   object-position: center 22%;
+}
+
+.modal-gallery-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 16px;
 }
 
 .modal-description {
