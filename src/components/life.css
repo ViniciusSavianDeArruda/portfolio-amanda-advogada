@@ -1,0 +1,50 @@
+/* 04 Vida acadêmica */
+
+.life-thumb {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: var(--sand-soft);
+  overflow: hidden;
+  border-radius: 1px;
+}
+
+.life-thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+.life-thumb:active { transform: scale(0.99); }
+
+.life { background: var(--sand-soft); }
+
+.life .sec-head { margin-bottom: var(--space-6); }
+
+.life-caption { color: var(--graphite); max-width: 62ch; margin-bottom: var(--space-7); }
+
+.life-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+.life-thumb { aspect-ratio: 4 / 5; }
+
+@media (hover: hover) and (pointer: fine) {
+.life-thumb:hover .photo { transform: scale(1.03); }
+}
+
+@media (min-width: 900px) {
+.life .sec-head { margin-bottom: var(--space-6); }
+}
+
+@media (min-width: 900px) {
+.life-caption { grid-column: 3 / 11; }
+}
+
+@media (min-width: 900px) {
+.life-grid { grid-column: 3 / 13; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+.life-thumb:hover .photo { transform: none; }
+}

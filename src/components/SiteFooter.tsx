@@ -1,20 +1,8 @@
+import { profile } from '../data/profile'
+import { footerLinks, sectionNumber } from '../data/sections'
+import { Brand } from './Brand'
 import { Reveal } from './Reveal'
-import brandMark from '../assets/brand-mark.png'
-
-const instagramAccounts = [
-  { handle: 'amandarenataqs', url: 'https://www.instagram.com/amandarenataqs/' },
-  { handle: 'euamandaquadros', url: 'https://www.instagram.com/euamandaquadros/' },
-]
-
-const email = 'amandareanteqs@gmail.com'
-const city = 'Santa Maria, RS'
-
-const navLinks = [
-  { href: '#inicio', label: 'Início' },
-  { href: '#apresentacao', label: 'Apresentação' },
-  { href: '#percurso', label: 'Percurso' },
-  { href: '#experiencia', label: 'Experiência' },
-]
+import './footer.css'
 
 function InstagramIcon() {
   return (
@@ -43,38 +31,37 @@ function LinkedinIcon() {
 
 export function SiteFooter() {
   return (
-    <footer className="site-footer">
-      <Reveal className="footer-inner">
-        <div className="footer-top">
-          <div className="footer-identity">
-            <a className="brand" href="#inicio" aria-label="Amanda Quadros — início">
-              <span className="brand-mark" aria-hidden="true">
-                <img src={brandMark} alt="" />
-              </span>
-              <span className="brand-copy">
-                <span className="brand-name">Amanda Quadros</span>
-                <span className="brand-subtitle">Portfólio acadêmico</span>
-              </span>
+    <footer className="site-footer" id="contato" aria-labelledby="contact-title">
+      <div className="wrap footer-wrap">
+        <Reveal className="footer-head">
+          <span className="sec-num sec-num--dark" aria-hidden="true">
+            {sectionNumber('contato')}
+          </span>
+          <div className="footer-head-text">
+            <span className="rule rule--champagne" aria-hidden="true" />
+            <h2 id="contact-title" className="eyebrow eyebrow--champagne">
+              Contato
+            </h2>
+            <a className="footer-email" href={`mailto:${profile.email}`}>
+              {profile.email}
             </a>
-            <p className="footer-city">
-              {city}
-              <span aria-hidden="true"> · </span>
-              <a className="footer-email" href={`mailto:${email}`}>
-                {email}
-              </a>
-            </p>
+            <p className="footer-city">{profile.city}</p>
           </div>
+        </Reveal>
+
+        <Reveal className="footer-top">
+          <Brand light />
 
           <nav className="footer-nav" aria-label="Navegação do rodapé">
-            {navLinks.map(link => (
-              <a key={link.href} href={link.href}>
+            {footerLinks.map(link => (
+              <a key={link.id} href={`#${link.id}`}>
                 {link.label}
               </a>
             ))}
           </nav>
 
           <div className="footer-social">
-            {instagramAccounts.map(account => (
+            {profile.instagram.map(account => (
               <a
                 key={account.handle}
                 className="social-link"
@@ -87,28 +74,26 @@ export function SiteFooter() {
               </a>
             ))}
           </div>
-        </div>
+        </Reveal>
 
-        <div className="footer-base">
+        <Reveal className="footer-base">
           <p className="footer-rights">
-            © {new Date().getFullYear()} Amanda Quadros. Todos os direitos
-            reservados.
+            © {new Date().getFullYear()} Amanda Quadros. Todos os direitos reservados.
           </p>
-
           <p className="footer-credit">
-            <span>Feito por Vinícius Arruda</span>
+            <span>{profile.credit.text}</span>
             <a
               className="social-link social-link--small"
-              href="https://www.linkedin.com/in/arrudavinicius/"
+              href={profile.credit.linkedinUrl}
               target="_blank"
               rel="noreferrer"
-              aria-label="LinkedIn de Vinícius Arruda"
+              aria-label={profile.credit.linkedinLabel}
             >
               <LinkedinIcon />
             </a>
           </p>
-        </div>
-      </Reveal>
+        </Reveal>
+      </div>
     </footer>
   )
 }

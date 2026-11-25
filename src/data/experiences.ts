@@ -1,6 +1,4 @@
-import { Reveal } from './Reveal'
-
-type Experience = {
+export type ExperienceItem = {
   id: number
   role: string
   place: string
@@ -8,7 +6,7 @@ type Experience = {
   description: string
 }
 
-const experiences: Experience[] = [
+export const experiences: ExperienceItem[] = [
   {
     id: 3,
     role: 'Estagiária em advocacia do agronegócio e bancária',
@@ -34,36 +32,3 @@ const experiences: Experience[] = [
       'Estágio voluntário no PROCON de Santa Maria, sob coordenação da Prof.ª Aline Cassagrande, com contato direto com demandas de direito do consumidor.',
   },
 ]
-
-export function ExperienceSection() {
-  return (
-    <section
-      className="works-block works-block--alt"
-      id="experiencia"
-      aria-labelledby="experience-title"
-    >
-      <Reveal className="works-block-header works-block-header--spaced">
-        <p className="works-label">Experiência profissional</p>
-        <h2 id="experience-title" className="works-title">
-          Prática <span>jurídica.</span>
-        </h2>
-      </Reveal>
-
-      <ol className="timeline">
-        {experiences.map((exp, index) => (
-          <Reveal
-            key={exp.id}
-            as="li"
-            className="timeline-item"
-            delay={index * 0.09}
-          >
-            <span className="timeline-period">{exp.period}</span>
-            <h3 className="timeline-role">{exp.role}</h3>
-            <span className="timeline-place">{exp.place}</span>
-            <p className="timeline-desc">{exp.description}</p>
-          </Reveal>
-        ))}
-      </ol>
-    </section>
-  )
-}
