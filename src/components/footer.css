@@ -1,0 +1,133 @@
+/* 05 Contato (rodapé) */
+
+.site-footer .brand-mark img { height: 56px; }
+
+.site-footer { background: var(--graphite); color: var(--ivory); padding-block: var(--section-y) var(--space-6); }
+
+.site-footer :focus-visible { outline-color: var(--ivory); }
+
+.footer-head { display: flex; flex-direction: column; gap: var(--space-4); }
+
+.footer-head-text { display: flex; flex-direction: column; align-items: flex-start; }
+
+.footer-head-text .rule { margin-bottom: var(--space-4); }
+
+.sec-num--dark { color: var(--champagne); }
+
+.footer-email {
+  position: relative;
+  display: inline-block;
+  font-family: var(--serif);
+  font-size: clamp(1.25rem, 0.5rem + 4vw, 3.25rem);
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  padding-bottom: 6px;
+  margin-top: var(--space-5);
+}
+
+.footer-email::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 1px;
+  background: var(--champagne);
+  opacity: 0.55;
+  transition: opacity 300ms var(--ease);
+}
+
+.footer-city { margin-top: var(--space-5); color: var(--on-dark-soft); font-size: var(--text-base); }
+
+.footer-top {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  margin-top: var(--space-8);
+  padding-top: var(--space-6);
+  border-top: 1px solid rgb(var(--ivory-rgb) / 18%);
+}
+
+.brand--light .brand-subtitle { color: var(--on-dark-soft); }
+
+.footer-nav { display: flex; flex-wrap: wrap; gap: 0 var(--space-6); }
+
+.footer-nav a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: var(--text-sm);
+  text-decoration: none;
+  color: var(--on-dark-soft);
+  transition: color 200ms ease;
+}
+
+.footer-social { display: flex; gap: var(--space-2); margin-left: -10px; }
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  color: var(--ivory);
+  transition: color 200ms ease, transform 200ms var(--ease);
+}
+
+.social-link svg { width: 24px; height: 24px; stroke: currentColor; }
+
+.social-link:active { transform: scale(0.96); }
+
+.social-link--small { width: 44px; height: 44px; }
+
+.social-link--small svg { width: 20px; height: 20px; }
+
+.footer-base {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-top: var(--space-6);
+  padding-top: var(--space-5);
+  border-top: 1px solid rgb(var(--ivory-rgb) / 18%);
+  font-size: var(--text-xs);
+  color: var(--on-dark-soft);
+}
+
+.footer-credit { display: flex; align-items: center; gap: var(--space-2); }
+
+@media (hover: hover) and (pointer: fine) {
+.footer-nav a:hover { color: var(--ivory); text-decoration: underline; text-decoration-color: var(--champagne); text-underline-offset: 6px; }
+}
+
+@media (hover: hover) and (pointer: fine) {
+.footer-email:hover::after { opacity: 1; }
+}
+
+@media (hover: hover) and (pointer: fine) {
+.social-link:hover { color: var(--champagne); }
+}
+
+@media (min-width: 600px) {
+.footer-top { flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: space-between; }
+}
+
+@media (min-width: 600px) {
+.footer-base { flex-direction: row; justify-content: space-between; align-items: center; }
+}
+
+@media (min-width: 900px) {
+.footer-head { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--space-6); align-items: start; }
+}
+
+@media (min-width: 900px) {
+.footer-head .sec-num { grid-column: 1 / 3; }
+}
+
+@media (min-width: 900px) {
+.footer-head-text { grid-column: 3 / 13; padding-top: 1.1rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+.footer-email::after { transition: none !important; }
+}

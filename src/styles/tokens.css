@@ -1,0 +1,51 @@
+/* Tokens de design: cores, tipografia, espaços, movimento */
+
+:root {
+  --ivory: #faf8f3;
+  --white: #ffffff;
+  --sand: #e9e0d2;
+  --sand-soft: #f1ebe0;
+  --champagne: #c2a46d;
+  --gold-text: #7e6230;
+  --graphite: #34312d;
+  --warm-gray: #77716a;
+  --wine: #6e2a35;
+  --border: #e4ded4;
+  --on-dark-soft: #d8d0c3;
+  --ivory-rgb: 250 248 243;
+  --graphite-rgb: 52 49 45;
+
+  --text-xs: 0.8125rem;
+  --text-sm: 0.9375rem;
+  --text-base: 1.0625rem;
+  --text-lead: clamp(1.25rem, 1rem + 0.6vw, 1.5rem);
+  --text-h3: clamp(1.25rem, 0.9rem + 1.2vw, 1.75rem);
+  --text-h2: clamp(2rem, 1.5rem + 3vw, 3.5rem);
+  --text-display: clamp(3.25rem, 1.6rem + 5.6vw, 6rem);
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 72px;
+  --space-9: 120px;
+  --section-y: clamp(5rem, 10vw, 9rem);
+  --maxw: 1240px;
+  --gutter: 20px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --header-h: 76px;
+
+  --serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --sans: 'DM Sans', 'Segoe UI', system-ui, sans-serif;
+}
+
+@media (min-width: 600px) {
+:root { --gutter: 32px; }
+}
+
+@media (min-width: 900px) {
+:root { --gutter: 48px; --header-h: 88px; }
+}

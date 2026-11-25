@@ -1,43 +1,21 @@
-import { motion } from 'motion/react'
-import type { ReactNode } from 'react'
+import { createElement, type CSSProperties, type ReactNode } from 'react'
+import { useReveal } from '../hooks/useReveal'
 
-/* MotionConfig reducedMotion="user" em App.tsx já descarta os deslocamentos
-   de quem pede menos movimento, sobrando apenas o fade */
-export const ease = [0.22, 1, 0.36, 1] as const
+type RevealTag = 'div' | 'p' | 'li' | 'ul' | 'dl' | 'article'
 
 type RevealProps = {
+  as?: RevealTag
+  className: string
+  style?: CSSProperties
   children: ReactNode
-  className?: string
-  delay?: number
-  as?: 'div' | 'section' | 'li'
 }
 
-export function Reveal({ children, className, delay = 0, as = 'div' }: RevealProps) {
-  const Tag = motion[as]
-
-  return (
-    <Tag
-      className={className}
-      initial={{ opacity: 0, y: 22 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.15 }}
-      transition={{ duration: 0.65, ease, delay }}
-    >
-      {children}
-    </Tag>
+/* Bloco que entra uma única vez ao aparecer na tela (classes .reveal / .is-in). */
+export function Reveal({ as = 'div', className, style, children }: RevealProps) {
+  const [ref, revealed] = useReveal<HTMLElement>()
+  return createElement(
+    as,
+    { ref, className: `${className} reveal${revealed ? ' is-in' : ''}`, style },
+    children,
   )
-}
-
-export const overlayMotion = {
-  initial: { opacity: 0 },
-  animate: { opacity: 1 },
-  exit: { opacity: 0 },
-  transition: { duration: 0.22, ease },
-}
-
-export const panelMotion = {
-  initial: { opacity: 0, y: 18, scale: 0.98 },
-  animate: { opacity: 1, y: 0, scale: 1 },
-  exit: { opacity: 0, y: 12, scale: 0.98 },
-  transition: { duration: 0.32, ease },
 }

@@ -1,0 +1,88 @@
+/* 02 Experiência: linha do tempo */
+
+.experience { background: var(--ivory); }
+
+.timeline { border-top: 1px solid var(--border); }
+
+.timeline-item {
+  display: grid;
+  gap: var(--space-3);
+  padding-block: var(--space-6);
+  border-bottom: 1px solid var(--border);
+}
+
+.timeline-period {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--gold-text);
+  font-variant-numeric: tabular-nums;
+}
+
+.timeline-role { font-size: var(--text-h3); line-height: 1.2; max-width: 28ch; }
+
+.timeline-place { display: block; margin-top: var(--space-2); font-size: var(--text-sm); color: var(--warm-gray); }
+
+.timeline-desc { margin-top: var(--space-4); max-width: 62ch; }
+
+@media (min-width: 768px) {
+.timeline-item { grid-template-columns: 11rem minmax(0, 1fr); gap: var(--space-6); }
+}
+
+@media (min-width: 768px) {
+.timeline-period { padding-top: 0.6em; }
+}
+
+@media (min-width: 900px) {
+.timeline { grid-column: 3 / 13; }
+}
+
+.timeline { position: relative; border-top: 1px solid var(--border); --tl-x: 4px; }
+
+.timeline::before,
+.timeline::after {
+  content: '';
+  position: absolute;
+  left: var(--tl-x);
+  top: 0;
+  bottom: 0;
+  width: 1px;
+}
+
+.timeline::before { background: var(--border); }
+
+.timeline::after { background: var(--graphite); transform: scaleY(var(--p, 0)); transform-origin: top; }
+
+.timeline-item { position: relative; padding-left: var(--space-5); }
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  left: calc(var(--tl-x) - 4px);
+  top: 40px;
+  width: 9px;
+  height: 9px;
+  border: 1px solid var(--graphite);
+  border-radius: 50%;
+  background: var(--ivory);
+  transition: background-color 200ms ease-out;
+}
+
+.timeline-item.is-reached::before { background: var(--graphite); }
+
+@media (min-width: 768px) {
+.timeline { --tl-x: calc(11rem + var(--space-6) / 2); }
+}
+
+@media (min-width: 768px) {
+.timeline-item { padding-left: 0; grid-template-columns: 11rem minmax(0, 1fr); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+.timeline::after { transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+.timeline-item::before { background: var(--graphite); transition: none; }
+}
