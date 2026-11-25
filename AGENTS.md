@@ -4,7 +4,7 @@
 
 Este projeto é o portfólio acadêmico de Amanda Quadros, estudante de Direito. Desenvolva uma experiência editorial, sofisticada, clara e personalizada, com rigor de UI/UX e engenharia de software sênior. Não represente Amanda como advogada formada ou atribua a ela experiência profissional sem confirmação explícita.
 
-Stack definida para o projeto: React, TypeScript, Vite, Tailwind CSS 3 e Motion for React. Antes de usar uma biblioteca ou mudar configuração, confira `package.json` e os arquivos de configuração. No estado atual observado, React, React DOM, TypeScript e Vite estão presentes; Tailwind CSS e Motion for React ainda não constam nas dependências. Não suponha que estejam instalados nem use APIs ou sintaxe incompatíveis com as versões configuradas. Preserve configurações existentes. Não instale ou atualize dependências a menos que a tarefa vigente solicite isso.
+Stack do projeto: React, TypeScript e Vite, com CSS próprio organizado em tokens (`src/styles/tokens.css`), base e um arquivo por componente. As animações são feitas em CSS com IntersectionObserver e hooks próprios em `src/hooks/`; Tailwind CSS e Motion for React não fazem parte das dependências. Antes de usar uma biblioteca ou mudar configuração, confira `package.json` e os arquivos de configuração. Não suponha que uma biblioteca esteja instalada nem use APIs ou sintaxe incompatíveis com as versões configuradas. Preserve configurações existentes. Não instale ou atualize dependências a menos que a tarefa vigente solicite isso.
 
 ## Skills disponíveis
 

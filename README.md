@@ -1,75 +1,50 @@
-# React + TypeScript + Vite
+# Portfólio acadêmico — Amanda Quadros
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Portfólio acadêmico de Amanda Quadros, estudante de Direito na Universidade Franciscana (UFN). Página única com direção editorial inspirada em periódicos jurídicos: apresentação, estágios, percurso acadêmico, vida acadêmica e contato.
 
-Currently, two official plugins are available:
+## Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- React 19 + TypeScript
+- Vite
+- CSS próprio, sem framework: tokens em `src/styles/tokens.css`, base em `src/styles/base.css` e um arquivo por componente
+- Animações em CSS + IntersectionObserver, sempre com alternativa para `prefers-reduced-motion`
 
-## React Compiler
+## Scripts
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm install       # instala as dependências
+npm run dev       # servidor de desenvolvimento
+npm run lint      # ESLint
+npm run build     # checagem de tipos + build de produção em dist/
+npm run preview   # serve o build de produção localmente
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Estrutura
 
 ```
+src/
+  data/         conteúdo da página (perfil, estágios, percurso, vida acadêmica, seções)
+  components/   seções e peças de interface, cada uma com seu CSS
+  hooks/        revelação ao rolar, scroll-spy, progresso de rolagem, divisão de títulos
+  lib/          utilitários (movimento reduzido, clamp)
+  styles/       tokens, base e estilos compartilhados de seção
+  assets/       fotos em WebP (com variantes -600 para telas menores) e a logo
+public/         favicon, ícone para iPhone e imagem de compartilhamento (Open Graph)
+```
+
+## Conteúdo
+
+Todo o texto da página fica em `src/data/`. Para atualizar uma informação (um estágio, uma atividade, um contato), edite o arquivo correspondente; os componentes não contêm texto de conteúdo.
+
+As seções (menu do topo, rodapé, sumário lateral e números 01–05) vêm de uma única lista em `src/data/sections.ts`.
+
+## Imagens
+
+- Fotos em WebP, com largura máxima de 1080 px, e variante `<nome>-600.webp` para telas menores.
+- Para adicionar uma foto, coloque `<nome>.webp` (e, se for mais larga que 600 px, `<nome>-600.webp`) em `src/assets/` e referencie com `image('<nome>', largura, altura)`.
+
+## Publicação
+
+Antes de publicar, troque o `og:image` em `index.html` por uma URL absoluta do domínio final, para a imagem de compartilhamento aparecer em redes sociais.
+
+Diretrizes de conteúdo, identidade visual e acessibilidade do projeto: ver `AGENTS.md`.
